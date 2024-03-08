@@ -1,0 +1,47 @@
+{% extends 'insert.html' %}
+
+
+{% block content %}
+
+    <div class="container mt-5 col-md-6">
+        <h2> update {{staff.EmpName}} data!</h2>
+    </div>
+
+    <div class="container mt-4 pt-2 col-md-4">
+        <form action="" method="post" class="bg-light p-3 rounded">
+        {% csrf_token %}
+        <div class="form-group">
+            Employee id  <input type="text" name="EmpId" class="form-control my-2" value="{{employee.EmpId}}">
+        </div>
+        <div class="form-group">
+            Employee name  <input type="text" name="EmpName" class="form-control my-2" value="{{employee.EmpName}}">
+        </div>
+        <div class="form-group">
+             Gender <input type="text" name="EmpGender" class="form-control my-2" value="{{employee.EmpGender}}">
+        </div>
+        <div class="form-group">
+            Email  <input type="email" name="EmpEmail" class="form-control my-2" value="{{employee.EmpEmail}}">
+        </div>
+
+        <div class="form-group">
+            Designation
+             <select name="EmpDesignation" id="" class="form-control">
+                <option selected disabled="disabled"> Select designation </option>
+                <option value="{{'project manager'}}"> project manager</option>
+                <option value="{{ 'programmer' }}"> programmer</option>
+                <option value="{{ 'Desktop support' }}"> Desktop support</option>
+                <option value="{{ 'web developer' }}"> web developer</option>
+                <option value="{{ 'financial advisor' }}"> financial advisor</option>
+            </select>
+        </div>
+            <input type="submit" value="submit" class="btn btn-secondary my-2">
+
+    </form>
+
+    <p class="my-3">
+        <a href="{% url 'show_emp' %}"> <-- Employee's information </a>
+    </p>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,46 @@
+ {% extends 'insert.html' %}
+ {% block content %}
+
+    <div class="container mt-5 col-md-6">
+        <h1> hello {{EmpName}}. you've successfully registered! </h1>
+        <h2> Employee information </h2>
+    </div>
+
+
+    <div class="table-responsive container mt-4 pt-2 col-md-6">
+        <table class="table">
+        <thead>
+            <tr>
+                <th> Employee ID </th>
+                <th> Name </th>
+                <th> Gender </th>
+                <th> Email </th>
+                <th> Designation </th>
+                <th> Update </th>
+                <th> Delete </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for staff in staff %}
+            <tr>
+                <td>{{staff.EmpId}}</td>
+                <td>{{staff.EmpName}}</td>
+                <td>{{staff.EmpGender}}</td>
+                <td>{{staff.EmpEmail}}</td>
+                <td>{{staff.EmpDesignation}}</td>
+                <td> <a href = "/edit/{{staff.pk}}"> Update </a></td>
+                <td> <a href = "/delete/{{staff.pk}}"> Delete </a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+    <div class="container mt-5 col-md-4">
+       <p>enter more employee here!</p>
+        <p> <a href="{% url 'insert_emp' %}"> <-- Go to Registration page! </a></p>
+    </div>
+
+
+
+ {% endblock %}
